@@ -4,7 +4,15 @@
 #include <map>
 #include <vector>
 
+namespace Textures {
+	enum ID {
+		Player,
+		Enemy
+	};
 
+
+
+}
 template<typename Resource, typename Indentifier>
 class ResourceManager
 {
