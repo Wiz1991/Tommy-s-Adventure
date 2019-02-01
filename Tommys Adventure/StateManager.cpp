@@ -12,8 +12,7 @@ void StateManager::RegisterStates(){
 
 void StateManager::Update(sf::Time dT){
    mStateStack[mCurrentStateIndetifier]->Update();
-   if(mCurrentState!=mNextState)
-    mCurrentState
- 
+   if(mCurrentStateIndetifier!=mNextState)
+    mCurrentStateIndetifier = static_cast<int>(mNextState);
 }
 
