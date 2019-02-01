@@ -11,8 +11,7 @@ class State {
  
  
    public:
-   State(State::States aState) : mCurrentState(aState),
-                                 isPaused(false){}
+   State(State::States aState) : {}
    virtual ~State()                                 
    public:
    
@@ -20,14 +19,10 @@ class State {
      virtual void Draw() = 0;
      virtual void Render() = 0;
      virtual void handleEvents() = 0;
-     virtual void Pause(){
-          isPaused= true;
+    
    
-   private:
-   State::States mCurrentState;
-   State::States mNextState;
-   
-   bool isPaused;
+  
+
    
    
    
