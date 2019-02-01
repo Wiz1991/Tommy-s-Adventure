@@ -10,8 +10,6 @@ class StateManager : public State{
 
     void RegisterStates();
     void Update();
-    void PushState(State::States aState);
- 
   private:
     std::vector<*State> mStateStack;
     int currentStateIndentifier;
