@@ -20,7 +20,7 @@ class State {
      virtual void Update(sf::Time dT) = 0;
      virtual void Draw() = 0;
      virtual void Render() = 0;
-     virtual void handleEvents() = 0;
+     virtual void handleEvents(sf::Event& event) = 0;
  
      State::States getNextState() const { return mNextState; }
     protected:
