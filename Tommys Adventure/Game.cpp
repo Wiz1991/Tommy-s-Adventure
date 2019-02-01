@@ -13,8 +13,8 @@ Game::Game() : window(sf::VideoMode(800, 600), "Tommy's Adventure")
 
 void Game::Update(sf::Time dT)
 {
-	//have the objects themself handle the update
-	//player.update(), enemy.update()...
+	//Update the current state
+	mStateManager.Update(dT);
 }
 
 void Game::Run()
@@ -39,6 +39,8 @@ void Game::proccesEvents()
 	while (window.pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			window.close();
+		else 
+			mStateManager.processEvents(event);
 		
 	}
 }
