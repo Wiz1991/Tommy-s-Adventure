@@ -29,21 +29,20 @@ class State {
     private:
          const State::States mStateType;
          State::States mNextState;
-                                         
-
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
-   
    
    }
+  inline *State getStateFromType(State::States stateType){
+       switch(stateType){
+        case State::States::INTRO:
+         return new Intro();
+        case State::States::MENU:
+         return new Menu();
+        case State::States::PLAY:
+         return new Play();
+        default: 
+         return nullptr;
+         
+         
+   
+   //LIST OF ALL STATES, returns an object to RegisterStates()
+  }
