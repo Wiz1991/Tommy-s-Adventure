@@ -5,13 +5,14 @@ class State {
  enum class States{
            INTRO,
            MENU,
-           PlAY,
+           PLAY,
            TOTAL
         }
  
  
    public:
-   State(State::States aState) : {}
+   State(State::States aState) : mStateType(aState),
+                                 mNextState(mStateType){}
    virtual ~State()                                 
    public:
    
@@ -19,9 +20,16 @@ class State {
      virtual void Draw() = 0;
      virtual void Render() = 0;
      virtual void handleEvents() = 0;
+ 
+     State::States getNextState() const { return mNextState; }
+    protected:
+     void PushState(State::States aState) { mNextState= aState; }
     
    
-  
+    private:
+         const State::States mStateType;
+         State::States mNextState;
+                                         
 
    
    
