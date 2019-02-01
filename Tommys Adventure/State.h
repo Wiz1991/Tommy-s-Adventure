@@ -6,6 +6,7 @@ class State {
            INTRO,
            MENU,
            PLAY,
+           GAME_OVER,
            TOTAL
         }
  
@@ -39,6 +40,8 @@ class State {
          return new Menu();
         case State::States::PLAY:
          return new Play();
+        case State::States::GAME_OVER:
+         return new GameOver();
         default: 
          return nullptr;
          
