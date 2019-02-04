@@ -1,16 +1,24 @@
+#pragma once
 #include <vector>
-#include <memory>
 #include "State.h"
 
 
+class StateManager
+{
+public:
+	StateManager();
+	~StateManager();
+	void RegisterStates();
+	void ClearStateStack();
+	bool isEmpty();
 
-class StateManager : public State{
- public:
-   StateManager()
+	void Update(sf::Time dT);
+	void handleEvents(sf::Event event);
+	void draw();
 
-    void RegisterStates();
-    void Update();
-  private:
-    std::vector<*State> mStateStack;
-    int currentStateIndentifier;
-}
+
+private:
+	std::vector<State*> mStateStack;
+	int mCurrentState;
+	bool mIsRunning;
+};

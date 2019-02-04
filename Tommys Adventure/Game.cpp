@@ -2,7 +2,8 @@
 
 
 
-Game::Game() : window(sf::VideoMode(800, 600), "Tommy's Adventure")
+Game::Game() : window(sf::VideoMode(800, 600), "Tommy's Adventure"),
+               mStateManager()
 {
 
 
@@ -28,6 +29,8 @@ void Game::Run()
 			timeSinceLastUpdate -= timePerFrame;
 			proccesEvents();
 			Update(timePerFrame);
+			if (mStateManager.isEmpty())
+				window.close();
 		}
 		Render();
 	}
@@ -37,10 +40,9 @@ void Game::proccesEvents()
 {
 	sf::Event event;
 	while (window.pollEvent(event)) {
+		mStateManager.handleEvents(event);
 		if (event.type == sf::Event::Closed)
 			window.close();
-		else 
-			mStateManager.processEvents(event);
 		
 	}
 }
@@ -48,6 +50,6 @@ void Game::proccesEvents()
 void Game::Render()
 {
 	window.clear(sf::Color::White);
-	//go thorugh all drawable objects and have them draw themself // Draw() { player.draw(), enemy.draw()...
+	mStateManager.draw();
 	window.display();
 }

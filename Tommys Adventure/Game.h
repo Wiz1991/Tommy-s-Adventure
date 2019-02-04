@@ -12,7 +12,7 @@ public:
 	void Render();
 private:
 	sf::RenderWindow window;
-        StateManager mStateManager;
+    StateManager mStateManager;
 
 
 };
