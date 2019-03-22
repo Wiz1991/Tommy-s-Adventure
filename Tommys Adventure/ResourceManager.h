@@ -1,8 +1,15 @@
 #pragma once
 #include <string>
-#include <SFML/Graphics.hpp>
+#include <SFML/Graphics/Texture.hpp>
 #include <map>
+#include <assert.h>
 #include <vector>
+namespace Textures {
+	enum ID {
+		AIRPLANE,
+		BACKGROUND
+	};
+}
 
 
 template<typename Resource, typename Indentifier>
@@ -16,3 +23,4 @@ private:
 	std::map<Indentifier, std::unique_ptr<Resource>> mResourceMap;
 };
 
+typedef ResourceManager<sf::Texture, Textures::ID> TextureManager;

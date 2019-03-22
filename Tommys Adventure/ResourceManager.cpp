@@ -6,7 +6,7 @@ template<typename Resource, typename Indentifier>
 void ResourceManager<Resource, Indentifier>::load(Indentifier ID, const std::string filepath)
 {
 	std::unique_ptr<Resource>resource(new Resource());
-	resource->loadFromFile(filepath);
+	assert((!resource->loadFromFile(filepath)));
 	mResourceMap.insert(std::make_pair(ID, std::move(resource)));
 }
 

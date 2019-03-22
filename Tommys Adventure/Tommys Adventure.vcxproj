@@ -131,11 +131,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AnimationHandler.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="SceneNode.cpp" />
+    <ClCompile Include="SpriteNode.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AnimationHandler.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="SceneNode.h" />
+    <ClInclude Include="SpriteNode.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
