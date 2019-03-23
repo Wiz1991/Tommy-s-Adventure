@@ -4,6 +4,8 @@
 #include "SFML/System/Time.hpp"
 #include "SFML/Window/Event.hpp"
 #include "World.h"
+#include "Utilities.h"
+
 
 class Game
 {
@@ -13,8 +15,13 @@ public:
 	void Update(sf::Time dT);
 	void Render();
 	void processEvents();
+	void updateStatistics(sf::Time timeElapsed);
 
 private:
 	sf::RenderWindow mWindow;
 	World mWorld;
+	sf::Font mFont;
+	size_t mStatisticsFrames;
+	sf::Time mUpdateTime;
+	sf::Text mStatisticsText;
 };

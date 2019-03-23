@@ -1,10 +1,20 @@
 #include "Game.h"
 
 
-Game::Game() 
+Game::Game()
 	: mWindow(sf::VideoMode(640, 480), "Animations"),
-      mWorld(mWindow)
-{}
+	mWorld(mWindow),
+	mFont(),
+	mStatisticsFrames(0),
+	mUpdateTime()
+{
+	mFont.loadFromFile("fonts/micross.ttf");
+	mStatisticsText.setFont(mFont);
+	mStatisticsText.setPosition(5.f, 5.f);
+	mStatisticsText.setCharacterSize(15);
+	mWindow.setFramerateLimit(60);
+
+}
 
 void Game::Run()
 {
@@ -20,7 +30,8 @@ void Game::Run()
 			processEvents();
 			Update(timePerFrame);
 		}
-	Render();
+		updateStatistics(dT);
+	    Render();
 	}
 
 }
@@ -34,6 +45,9 @@ void Game::Render()
 {
 	mWindow.clear(sf::Color::White);
 	mWorld.draw();
+
+	mWindow.setView(mWindow.getDefaultView());
+	mWindow.draw(mStatisticsText);
 	mWindow.display();
 }
 
@@ -49,5 +63,16 @@ void Game::processEvents()
 
 	}
 	
+}
+
+void Game::updateStatistics(sf::Time timeElapsed)
+{
+	mUpdateTime += timeElapsed;
+	mStatisticsFrames += 1;
+	if (mUpdateTime >= sf::seconds(1.0f)) {
+		mStatisticsText.setString("FPS: " + toString<float>(mStatisticsFrames));
+		mUpdateTime -= sf::seconds(1.0f);
+	    mStatisticsFrames = 0;
+	}
 }
 

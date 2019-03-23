@@ -22,6 +22,7 @@ World::World(sf::RenderWindow& aWindow)
 void World::update(sf::Time dT)
 {
 	mWorldView.move(0.f,scrollSpeed * dT.asSeconds());
+	mSceneLayers[AIR]->move(0, scrollSpeed* dT.asSeconds());
 	mSceneGraph.update(dT);
 	
 }
@@ -57,6 +58,11 @@ void World::buildScene()
 	background->setPosition(mWorldBounds.left,mWorldBounds.top);
 	background->setScale(scale);
 	mSceneLayers[RenderLayers::BACKGROUND]->attachNode(std::move(background));
+
+	std::unique_ptr<SpriteNode> airplane(new SpriteNode(mTextureHolder.get(Textures::AIRPLANE)));
+	airplane->setPosition(mSpawnPosition);
+	airplane->setScale(0.5, 0.5);
+	mSceneLayers[RenderLayers::AIR]->attachNode(std::move(airplane));
 
 
 
