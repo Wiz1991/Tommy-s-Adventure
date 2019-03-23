@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics/RenderWindow.hpp"
+#include "SFML/Graphics.hpp"
 #include "SFML/System/Time.hpp"
 #include "SFML/Window/Event.hpp"
 #include "World.h"

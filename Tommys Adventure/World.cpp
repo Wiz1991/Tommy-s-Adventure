@@ -2,37 +2,44 @@
 
 
 
-World::World(sf::RenderTarget& aWindow)
-	: mTarget(aWindow),
-	camera(0, 0, 560, 480),
-	worldView(camera),
-	scrollSpeed(0,-50),
-	mWorldBounds(0,0,worldView.getSize().x/2.f,2000.f)
+World::World(sf::RenderWindow& aWindow)
+	: mWindow(aWindow),
+	mWorldView(aWindow.getDefaultView()),
+	scrollSpeed(-100),
+	mWorldBounds(0.f, 0.f, aWindow.getSize().x, 5000.f),
+	mTextureHolder(),
+	mSpawnPosition(mWorldView.getSize().x/2.f,mWorldBounds.height-mWorldView.getSize().y/2.f),
+	mSceneGraph(),
+	mSceneLayers()
 	
 {
 	loadTextures();
 	buildScene();
+
+	mWorldView.setCenter(mSpawnPosition);
 }
 
 void World::update(sf::Time dT)
 {
-	worldView.move(scrollSpeed * dT.asSeconds());
+	mWorldView.move(0.f,scrollSpeed * dT.asSeconds());
 	mSceneGraph.update(dT);
+	
 }
 
 void World::draw()
 {
-
-	mTarget.setView(worldView);
-	mTarget.draw(mSceneGraph);
+	
+	mWindow.setView(mWorldView);
+	mWindow.draw(mSceneGraph);
 }
 
 void World::loadTextures()
 {
-	mTextureHolder.load(Textures::ID::AIRPLANE, "resources/textures/pl1dm0.png");
-	mTextureHolder.load(Textures::ID::BACKGROUND, "resources/textures/desert.jpeg");
+	mTextureHolder.load(Textures::ID::AIRPLANE, "textures/pl1dm0.png");
+    mTextureHolder.load(Textures::ID::BACKGROUND, "textures/desert.png");
+	mTextureHolder.load(Textures::ID::test, "thief.png");
 }
-
+ 
 void World::buildScene()
 {
 	for (size_t i = 0; i < LayerCount; ++i) {
@@ -42,9 +49,13 @@ void World::buildScene()
 	}
 	sf::Texture& desert = mTextureHolder.get(Textures::BACKGROUND);
 	desert.setRepeated(true);
+	sf::Vector2f scale(mWindow.getSize().x / (float)desert.getSize().x
+		             , mWindow.getSize().y / (float)desert.getSize().y);
 	sf::IntRect textureRect(mWorldBounds);
 
-	uniqPtr background(new SpriteNode(desert,textureRect));
+	std::unique_ptr<SpriteNode> background(new SpriteNode(desert,textureRect));
+	background->setPosition(mWorldBounds.left,mWorldBounds.top);
+	background->setScale(scale);
 	mSceneLayers[RenderLayers::BACKGROUND]->attachNode(std::move(background));
 
 

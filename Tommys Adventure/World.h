@@ -7,6 +7,7 @@
 #include <array>
 #include "SFML/Graphics.hpp"
 
+
 enum RenderLayers {
 	BACKGROUND,
 	AIR,
@@ -16,22 +17,21 @@ enum RenderLayers {
 class World
 {
 public:
-	World(sf::RenderTarget& aWindow);
+	World(sf::RenderWindow& aWindow);
 	void update(sf::Time dT);
 	void draw();
 	void loadTextures();
 	void buildScene();
 private:
-	typedef std::unique_ptr<SceneNode> uniqPtr;
-	sf::RenderTarget& mTarget;
+	ResourceManager<sf::Texture, Textures::ID> mTextureHolder;
+	sf::RenderWindow& mWindow;
 	SceneNode mSceneGraph;
 	std::array<SceneNode*, LayerCount> mSceneLayers;
-	TextureManager mTextureHolder;
 
-	sf::View worldView;
-	sf::FloatRect camera;
-	sf::Vector2f scrollSpeed;
-	sf::IntRect mWorldBounds;
+	sf::View mWorldView;
+	float scrollSpeed;
+	sf::FloatRect mWorldBounds;
+	sf::Vector2f mSpawnPosition;
 
 
 };

@@ -2,7 +2,7 @@
 
 
 Game::Game() 
-	: mWindow(sf::VideoMode(560, 480), "Animations"),
+	: mWindow(sf::VideoMode(640, 480), "Animations"),
       mWorld(mWindow)
 {}
 
@@ -20,8 +20,8 @@ void Game::Run()
 			processEvents();
 			Update(timePerFrame);
 		}
-	}
 	Render();
+	}
 
 }
 
@@ -32,7 +32,7 @@ void Game::Update(sf::Time dT)
 
 void Game::Render()
 {
-	mWindow.clear();
+	mWindow.clear(sf::Color::White);
 	mWorld.draw();
 	mWindow.display();
 }
@@ -40,6 +40,14 @@ void Game::Render()
 void Game::processEvents()
 {
 	sf::Event event;
+	while (mWindow.pollEvent(event)) {
+		if (event.type == sf::Event::Closed)
+			mWindow.close();
+
+
+
+
+	}
 	
 }
 

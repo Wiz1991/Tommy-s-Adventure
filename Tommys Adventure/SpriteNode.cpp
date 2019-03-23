@@ -7,7 +7,7 @@ SpriteNode::SpriteNode(sf::Texture& aTexture) : mSprite(aTexture)
 {
 }
 
-SpriteNode::SpriteNode(sf::Texture & aTexture, sf::IntRect textureRect)
+SpriteNode::SpriteNode(sf::Texture & aTexture, sf::IntRect& textureRect)
 	: mSprite(aTexture, textureRect)
 {
 }
