@@ -10,7 +10,8 @@ World::World(sf::RenderWindow& aWindow)
 	mTextureHolder(),
 	mSpawnPosition(mWorldView.getSize().x/2.f,mWorldBounds.height-mWorldView.getSize().y/2.f),
 	mSceneGraph(),
-	mSceneLayers()
+	mSceneLayers(),
+	mPlayerAirplane(nullptr)
 	
 {
 	loadTextures();
@@ -48,6 +49,7 @@ void World::buildScene()
 		mSceneLayers[i] = layer.get();
 		mSceneGraph.attachNode(std::move(layer));
 	}
+	//
 	sf::Texture& desert = mTextureHolder.get(Textures::BACKGROUND);
 	desert.setRepeated(true);
 	sf::Vector2f scale(mWindow.getSize().x / (float)desert.getSize().x
@@ -56,13 +58,13 @@ void World::buildScene()
 
 	std::unique_ptr<SpriteNode> background(new SpriteNode(desert,textureRect));
 	background->setPosition(mWorldBounds.left,mWorldBounds.top);
-	background->setScale(scale);
 	mSceneLayers[RenderLayers::BACKGROUND]->attachNode(std::move(background));
 
-	std::unique_ptr<SpriteNode> airplane(new SpriteNode(mTextureHolder.get(Textures::AIRPLANE)));
-	airplane->setPosition(mSpawnPosition);
-	airplane->setScale(0.5, 0.5);
-	mSceneLayers[RenderLayers::AIR]->attachNode(std::move(airplane));
+	std::unique_ptr<Airplane> player(new Airplane(mTextureHolder.get(Textures::ID::AIRPLANE),Airplane::Type::Owl));
+	player->setPosition(mSpawnPosition);
+	player->setScale(0.5, 0.5);
+	mPlayerAirplane = player.get();
+	mSceneLayers[RenderLayers::AIR]->attachNode(std::move(player));
 
 
 

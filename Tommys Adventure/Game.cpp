@@ -57,7 +57,10 @@ void Game::processEvents()
 	while (mWindow.pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			mWindow.close();
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
+			
 
+		}
 
 
 

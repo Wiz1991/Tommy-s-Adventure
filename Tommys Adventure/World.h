@@ -6,6 +6,7 @@
 #include <memory>
 #include <array>
 #include "SFML/Graphics.hpp"
+#include "Airplane.h"
 
 
 enum RenderLayers {
@@ -27,6 +28,8 @@ private:
 	sf::RenderWindow& mWindow;
 	SceneNode mSceneGraph;
 	std::array<SceneNode*, LayerCount> mSceneLayers;
+	Airplane* mPlayerAirplane;
+
 
 	sf::View mWorldView;
 	float scrollSpeed;
