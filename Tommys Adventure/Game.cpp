@@ -1,6 +1,5 @@
 #include "Game.h"
 
-
 Game::Game()
 	: mWindow(sf::VideoMode(640, 480), "Animations"),
 	mWorld(mWindow),
@@ -13,7 +12,6 @@ Game::Game()
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(15);
 	mWindow.setFramerateLimit(60);
-
 }
 
 void Game::Run()
@@ -21,7 +19,7 @@ void Game::Run()
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	const sf::Time timePerFrame = sf::seconds(1.f / 60.f);
-	while(mWindow.isOpen())
+	while (mWindow.isOpen())
 	{
 		sf::Time dT = clock.restart();
 		timeSinceLastUpdate += dT;
@@ -31,9 +29,8 @@ void Game::Run()
 			Update(timePerFrame);
 		}
 		updateStatistics(dT);
-	    Render();
+		Render();
 	}
-
 }
 
 void Game::Update(sf::Time dT)
@@ -57,15 +54,10 @@ void Game::processEvents()
 	while (mWindow.pollEvent(event)) {
 		if (event.type == sf::Event::Closed)
 			mWindow.close();
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D)) {
-			
-
+		if (event.type == sf::Event::KeyPressed) {
+			mWorld.handleInput(event.key.code);
 		}
-
-
-
 	}
-	
 }
 
 void Game::updateStatistics(sf::Time timeElapsed)
@@ -75,7 +67,6 @@ void Game::updateStatistics(sf::Time timeElapsed)
 	if (mUpdateTime >= sf::seconds(1.0f)) {
 		mStatisticsText.setString("FPS: " + toString<float>(mStatisticsFrames));
 		mUpdateTime -= sf::seconds(1.0f);
-	    mStatisticsFrames = 0;
+		mStatisticsFrames = 0;
 	}
 }
-

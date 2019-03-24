@@ -73,5 +73,12 @@ void World::buildScene()
 
 }
 
+void World::handleInput(sf::Keyboard::Key key)
+{
+	if (key == sf::Keyboard::Key::D) {
+		mPlayerAirplane->setVelocity(100, 0);
+	}
+}
+
 
 

@@ -3,7 +3,7 @@
 #include <memory>
 #include <vector>
 
-class SceneNode : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
+class SceneNode : public sf::Drawable, public sf::Transformable
 {
 public:
 	typedef std::unique_ptr<SceneNode> Ptr;

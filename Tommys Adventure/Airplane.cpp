@@ -5,9 +5,10 @@
 
 
 
-Airplane::Airplane(sf::Texture & aTexture, sf::IntRect & textureRect,Type aType)
-	: mSprite(aTexture,textureRect),
+Airplane::Airplane(sf::Texture & aTexture, sf::IntRect & textureRect, Type aType)
+	: mSprite(aTexture, textureRect),
 	mType(aType)
+	
 {
 	mSprite.setOrigin(aTexture.getSize().x / 2.f,aTexture.getSize().y/2.f);
 }
@@ -28,10 +29,7 @@ void Airplane::setType(Type aType)
 {
 	mType = aType;
 }
-
-
-
-void Airplane::drawCurrent(sf::RenderTarget & target, sf::RenderStates states)
+void Airplane::drawCurrent(sf::RenderTarget & target, sf::RenderStates states)const
 {
 	target.draw(mSprite, states);
 }

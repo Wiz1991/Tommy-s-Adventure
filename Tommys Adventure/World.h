@@ -23,6 +23,7 @@ public:
 	void draw();
 	void loadTextures();
 	void buildScene();
+	void handleInput(sf::Keyboard::Key code);
 private:
 	ResourceManager<sf::Texture, Textures::ID> mTextureHolder;
 	sf::RenderWindow& mWindow;

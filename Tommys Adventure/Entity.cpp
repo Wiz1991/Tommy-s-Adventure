@@ -1,9 +1,7 @@
 #include "Entity.h"
 
-
-
-Entity::Entity(int HP) : mHealth(HP),
-                         mVelocity()
+Entity::Entity()
+	: mVelocity(0, 0)
 {
 }
 
@@ -23,22 +21,19 @@ sf::Vector2f Entity::getVelocity() const
 	return mVelocity;
 }
 
-int Entity::getHealth() const
+
+void Entity::accelerate(sf::Vector2f velocity)
 {
-	return mHealth;
+	mVelocity += velocity;
 }
 
-bool Entity::isDestroyed() const
+void Entity::accelerate(float vX, float vY)
 {
-	return mHealth <= 0;
+	mVelocity.x += vX;
+	mVelocity.y += vY;
 }
 
 void Entity::updateCurrent(sf::Time dT)
 {
 	move(mVelocity * dT.asSeconds());
 }
-
-
-
-
-
