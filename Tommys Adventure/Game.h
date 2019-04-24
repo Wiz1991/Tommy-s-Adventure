@@ -4,6 +4,7 @@
 #include "SFML/System/Time.hpp"
 #include "SFML/Window/Event.hpp"
 #include "World.h"
+#include "Player.h"
 #include "Utilities.h"
 
 
@@ -24,4 +25,5 @@ private:
 	size_t mStatisticsFrames;
 	sf::Time mUpdateTime;
 	sf::Text mStatisticsText;
+	Player mPlayer;
 };

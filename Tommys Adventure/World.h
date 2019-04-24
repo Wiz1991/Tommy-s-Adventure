@@ -7,14 +7,10 @@
 #include <array>
 #include "SFML/Graphics.hpp"
 #include "Airplane.h"
+#include "Command.h"
+#include "CommandQueue.h"
 
 
-enum RenderLayers {
-	BACKGROUND,
-	AIR,
-	GUI,
-	LayerCount
-};
 class World
 {
 public:
@@ -23,13 +19,21 @@ public:
 	void draw();
 	void loadTextures();
 	void buildScene();
-	void handleInput(sf::Keyboard::Key code);
+	CommandQueue& getCommandQueue();
+private:
+enum RenderLayers {
+	BACKGROUND,
+	AIR,
+	GUI,
+	LayerCount
+};
 private:
 	ResourceManager<sf::Texture, Textures::ID> mTextureHolder;
 	sf::RenderWindow& mWindow;
 	SceneNode mSceneGraph;
 	std::array<SceneNode*, LayerCount> mSceneLayers;
 	Airplane* mPlayerAirplane;
+	CommandQueue mCommandQueue;
 
 
 	sf::View mWorldView;

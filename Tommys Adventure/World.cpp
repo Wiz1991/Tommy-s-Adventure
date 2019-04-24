@@ -23,7 +23,10 @@ World::World(sf::RenderWindow& aWindow)
 void World::update(sf::Time dT)
 {
 	mWorldView.move(0.f,scrollSpeed * dT.asSeconds());
-	mSceneLayers[AIR]->move(0, scrollSpeed* dT.asSeconds());
+	mPlayerAirplane->setVelocity(0, 0);
+	while (!mCommandQueue.isEmpty()) {
+		mSceneGraph.onCommand(mCommandQueue.pop(), dT);
+	}
 	mSceneGraph.update(dT);
 	
 }
@@ -73,11 +76,11 @@ void World::buildScene()
 
 }
 
-void World::handleInput(sf::Keyboard::Key key)
+
+
+CommandQueue& World::getCommandQueue()
 {
-	if (key == sf::Keyboard::Key::D) {
-		mPlayerAirplane->setVelocity(100, 0);
-	}
+	return mCommandQueue;
 }
 
 

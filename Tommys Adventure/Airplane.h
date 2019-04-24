@@ -5,13 +5,15 @@ class Airplane : public Entity
 public:
 	enum class Type {
 		Eagle,
-	    Owl
+	    Owl,
+		Raptor
 	};
 	Airplane(sf::Texture& aTexture, sf::IntRect& textureRect,Type aType);
 	Airplane(sf::Texture& aTexture,Type aType);
 	
 	Type getType() const;
 	void setType(Type aType);
+	unsigned int getCategory();
 	 
 
 private:

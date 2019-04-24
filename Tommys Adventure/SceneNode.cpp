@@ -31,6 +31,19 @@ void SceneNode::update(sf::Time dT) {
 	updateChildren(dT);
 
 }
+void SceneNode::onCommand(const Command& command, sf::Time dT)
+{
+	if (command.category & getCategory()) {
+		command.action(*this, dT);
+	}
+	for (Ptr& child : mChildren) {
+		child->onCommand(command, dT);
+	}
+}
+unsigned int SceneNode::getCategory()
+{
+	return Category::Type::Scene;
+}
 void SceneNode::updateChildren(sf::Time dT)
 {
 	for (const Ptr &current : mChildren) {

@@ -12,6 +12,7 @@ Game::Game()
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(15);
 	mWindow.setFramerateLimit(60);
+	mWindow.setVerticalSyncEnabled(false);
 }
 
 void Game::Run()
@@ -50,14 +51,14 @@ void Game::Render()
 
 void Game::processEvents()
 {
+	CommandQueue& cmd = mWorld.getCommandQueue();
 	sf::Event event;
 	while (mWindow.pollEvent(event)) {
+		mPlayer.handleEvents(event, cmd);
 		if (event.type == sf::Event::Closed)
 			mWindow.close();
-		if (event.type == sf::Event::KeyPressed) {
-			mWorld.handleInput(event.key.code);
-		}
 	}
+	mPlayer.handleRealTimeInput(cmd);
 }
 
 void Game::updateStatistics(sf::Time timeElapsed)
