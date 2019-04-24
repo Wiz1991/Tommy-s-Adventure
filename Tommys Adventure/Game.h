@@ -1,19 +1,29 @@
 #pragma once
-#include <SFML/Graphics.hpp>
-#include "StateManager.h"
+#include "SFML/Graphics/RenderWindow.hpp"
+#include "SFML/Graphics.hpp"
+#include "SFML/System/Time.hpp"
+#include "SFML/Window/Event.hpp"
+#include "World.h"
+#include "Player.h"
+#include "Utilities.h"
+
+
 class Game
 {
 public:
 	Game();
-public:
-	void Update(sf::Time dT);
 	void Run();
-	void proccesEvents();
+	void Update(sf::Time dT);
 	void Render();
+	void processEvents();
+	void updateStatistics(sf::Time timeElapsed);
+
 private:
-	sf::RenderWindow window;
-    StateManager mStateManager;
-
-
+	sf::RenderWindow mWindow;
+	World mWorld;
+	sf::Font mFont;
+	size_t mStatisticsFrames;
+	sf::Time mUpdateTime;
+	sf::Text mStatisticsText;
+	Player mPlayer;
 };
-

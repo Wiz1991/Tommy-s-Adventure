@@ -1,21 +1,18 @@
 #include "Game.h"
 
-
-
-Game::Game() : window(sf::VideoMode(800, 600), "Tommy's Adventure"),
-               mStateManager()
+Game::Game()
+	: mWindow(sf::VideoMode(640, 480), "Animations"),
+	mWorld(mWindow),
+	mFont(),
+	mStatisticsFrames(0),
+	mUpdateTime()
 {
-
-
-}
-
-
-
-
-void Game::Update(sf::Time dT)
-{
-	//Update the current state
-	mStateManager.Update(dT);
+	mFont.loadFromFile("fonts/micross.ttf");
+	mStatisticsText.setFont(mFont);
+	mStatisticsText.setPosition(5.f, 5.f);
+	mStatisticsText.setCharacterSize(15);
+	mWindow.setFramerateLimit(60);
+	mWindow.setVerticalSyncEnabled(false);
 }
 
 void Game::Run()
@@ -23,33 +20,54 @@ void Game::Run()
 	sf::Clock clock;
 	sf::Time timeSinceLastUpdate = sf::Time::Zero;
 	const sf::Time timePerFrame = sf::seconds(1.f / 60.f);
-	while (window.isOpen()) {
-		timeSinceLastUpdate += clock.restart();
+	while (mWindow.isOpen())
+	{
+		sf::Time dT = clock.restart();
+		timeSinceLastUpdate += dT;
 		while (timeSinceLastUpdate > timePerFrame) {
 			timeSinceLastUpdate -= timePerFrame;
-			proccesEvents();
+			processEvents();
 			Update(timePerFrame);
-			if (mStateManager.isEmpty())
-				window.close();
 		}
+		updateStatistics(dT);
 		Render();
 	}
 }
 
-void Game::proccesEvents()
+void Game::Update(sf::Time dT)
 {
-	sf::Event event;
-	while (window.pollEvent(event)) {
-		mStateManager.handleEvents(event);
-		if (event.type == sf::Event::Closed)
-			window.close();
-		
-	}
+	mWorld.update(dT);
 }
 
 void Game::Render()
 {
-	window.clear(sf::Color::White);
-	mStateManager.draw();
-	window.display();
+	mWindow.clear(sf::Color::White);
+	mWorld.draw();
+
+	mWindow.setView(mWindow.getDefaultView());
+	mWindow.draw(mStatisticsText);
+	mWindow.display();
+}
+
+void Game::processEvents()
+{
+	CommandQueue& cmd = mWorld.getCommandQueue();
+	sf::Event event;
+	while (mWindow.pollEvent(event)) {
+		mPlayer.handleEvents(event, cmd);
+		if (event.type == sf::Event::Closed)
+			mWindow.close();
+	}
+	mPlayer.handleRealTimeInput(cmd);
+}
+
+void Game::updateStatistics(sf::Time timeElapsed)
+{
+	mUpdateTime += timeElapsed;
+	mStatisticsFrames += 1;
+	if (mUpdateTime >= sf::seconds(1.0f)) {
+		mStatisticsText.setString("FPS: " + toString<float>(mStatisticsFrames));
+		mUpdateTime -= sf::seconds(1.0f);
+		mStatisticsFrames = 0;
+	}
 }
