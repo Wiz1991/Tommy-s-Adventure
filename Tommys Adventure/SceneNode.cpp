@@ -1,6 +1,7 @@
 #include "SceneNode.h"
 
-SceneNode::SceneNode()
+SceneNode::SceneNode() :
+	mParent(nullptr)
 {
 }
 
@@ -10,6 +11,7 @@ SceneNode::~SceneNode()
 
 void SceneNode::attachNode(Ptr node)
 {
+	node->mParent = this;
 	mChildren.push_back(std::move(node));
 }
 
@@ -40,9 +42,9 @@ void SceneNode::onCommand(const Command& command, sf::Time dT)
 		child->onCommand(command, dT);
 	}
 }
-unsigned int SceneNode::getCategory()
+unsigned int SceneNode::getCategory() 
 {
-	return Category::Type::Scene;
+	return Category::NONE;
 }
 void SceneNode::updateChildren(sf::Time dT)
 {

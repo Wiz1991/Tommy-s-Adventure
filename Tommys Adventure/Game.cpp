@@ -11,7 +11,6 @@ Game::Game()
 	mStatisticsText.setFont(mFont);
 	mStatisticsText.setPosition(5.f, 5.f);
 	mStatisticsText.setCharacterSize(15);
-	mWindow.setFramerateLimit(60);
 	mWindow.setVerticalSyncEnabled(false);
 }
 

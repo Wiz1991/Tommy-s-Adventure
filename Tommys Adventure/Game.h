@@ -1,8 +1,8 @@
 #pragma once
 #include "SFML/Graphics/RenderWindow.hpp"
-#include "SFML/Graphics.hpp"
+#include <SFML/Graphics/Text.hpp>
 #include "SFML/System/Time.hpp"
-#include "SFML/Window/Event.hpp"
+#include <SFML/Graphics/Font.hpp>
 #include "World.h"
 #include "Player.h"
 #include "Utilities.h"

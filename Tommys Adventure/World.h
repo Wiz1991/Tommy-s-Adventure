@@ -5,10 +5,14 @@
 #include <vector>
 #include <memory>
 #include <array>
-#include "SFML/Graphics.hpp"
 #include "Airplane.h"
-#include "Command.h"
 #include "CommandQueue.h"
+#include "Command.h"
+
+#include <SFML/Graphics/View.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+
 
 
 class World

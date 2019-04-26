@@ -1,5 +1,8 @@
 #pragma once
 #include "SceneNode.h"
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 class Entity : public SceneNode
 {
 public:

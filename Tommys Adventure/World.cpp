@@ -27,6 +27,7 @@ void World::update(sf::Time dT)
 	while (!mCommandQueue.isEmpty()) {
 		mSceneGraph.onCommand(mCommandQueue.pop(), dT);
 	}
+	mPlayerAirplane->accelerate(0.f, scrollSpeed);
 	mSceneGraph.update(dT);
 	
 }

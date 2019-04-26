@@ -2,15 +2,17 @@
 
 void CommandQueue::push(const Command& cmd)
 {
-	mCommandQueue.push(cmd);
+	mQueue.push(cmd);
 }
 
 Command CommandQueue::pop()
 {
-	mCommandQueue.pop();
+	Command cmd = mQueue.front();
+	mQueue.pop();
+	return cmd;
 }
 
 bool CommandQueue::isEmpty()
 {
-	return mCommandQueue.empty();
+	return mQueue.empty();
 }

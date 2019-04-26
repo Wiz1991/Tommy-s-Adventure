@@ -1,8 +1,20 @@
 #pragma once
+#include "Command.h"
+#include <SFML/Window/Event.hpp>
 #include "Airplane.h"
 #include "CommandQueue.h"
+#include <map>
+#include <SFML/Window/Keyboard.hpp>
 class Player
 {
+	enum Action {
+		moveLeft,
+		moveRight,
+		moveUp,
+		moveDown
+	};
+public:
+	Player();
 	struct AircraftMover {
 		AircraftMover(float vX, float vY) : mVelocity(vX, vY)
 		{
@@ -13,14 +25,14 @@ class Player
 		sf::Vector2f mVelocity;
 	};
 public:
+	void assignKeybind(sf::Keyboard::Key key, Action action);
+	bool isRealTimeAction(Action action);
+public:
 	void handleEvents(sf::Event& event, CommandQueue& commands);
-	void handleRealTimeInput(const sf::Event& event, CommandQueue& commands);
-	template<typename GameObject, typename Function>
-	std::function<void(SceneNode&, sf::Time)> derivedAction(Function fn) {
-		return [=](SceneNode & node, sf::Time dT) {
-			fn(static_cast<GameObject&>(node), dT)
-		}
-	}
+	void handleRealTimeInput(CommandQueue& commands);
+private:
+	std::map<sf::Keyboard::Key, Action> mKeyBinds;
+	std::map<Action, Command> mActionBind;
 	
 };
 

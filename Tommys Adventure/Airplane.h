@@ -1,5 +1,8 @@
 #pragma once
 #include "Entity.h"
+
+#include "Category.h"
+
 class Airplane : public Entity
 {
 public:
@@ -13,7 +16,7 @@ public:
 	
 	Type getType() const;
 	void setType(Type aType);
-	unsigned int getCategory();
+	virtual unsigned int getCategory();
 	 
 
 private:
