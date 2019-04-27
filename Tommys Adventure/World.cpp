@@ -41,9 +41,9 @@ void World::draw()
 
 void World::loadTextures()
 {
-	mTextureHolder.load(Textures::ID::AIRPLANE, "textures/pl1dm0.png");
+	mTextureHolder.load(Textures::ID::PlayerAirplane, "textures/pl1dm0.png");
     mTextureHolder.load(Textures::ID::BACKGROUND, "textures/desert.png");
-	mTextureHolder.load(Textures::ID::test, "thief.png");
+	mTextureHolder.load(Textures::ID::RaptorAirplane, "textures/pl2dm0.png");
 }
  
 void World::buildScene()
@@ -64,16 +64,11 @@ void World::buildScene()
 	background->setPosition(mWorldBounds.left,mWorldBounds.top);
 	mSceneLayers[RenderLayers::BACKGROUND]->attachNode(std::move(background));
 
-	std::unique_ptr<Airplane> player(new Airplane(mTextureHolder.get(Textures::ID::AIRPLANE),Airplane::Type::Owl));
+	std::unique_ptr<Airplane> player(new Airplane(mTextureHolder.get(Textures::ID::PlayerAirplane),Airplane::Type::Eagle));
 	player->setPosition(mSpawnPosition);
 	player->setScale(0.5, 0.5);
 	mPlayerAirplane = player.get();
 	mSceneLayers[RenderLayers::AIR]->attachNode(std::move(player));
-
-
-
-
-
 
 }
 

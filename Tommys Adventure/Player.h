@@ -5,6 +5,7 @@
 #include "CommandQueue.h"
 #include <map>
 #include <SFML/Window/Keyboard.hpp>
+#include <iostream>
 class Player
 {
 	enum Action {
@@ -33,6 +34,10 @@ public:
 private:
 	std::map<sf::Keyboard::Key, Action> mKeyBinds;
 	std::map<Action, Command> mActionBind;
-	
+
+protected:
+	void initializeKeyBinds();
+	void initializeActions();
+	const float playerSpeed = 200.f;
 };
 

@@ -37,7 +37,7 @@ unsigned int Airplane::getCategory()
 	case Airplane::Type::Eagle:
 		return Category::PlayerAircraft;
 	case Airplane::Type::Owl:
-		return Category::EnemyAircraft;
+		return Category::AlliedAircraft;
 	default:
 		return Category::EnemyAircraft;
 	}
@@ -46,3 +46,5 @@ void Airplane::drawCurrent(sf::RenderTarget & target, sf::RenderStates states)co
 {
 	target.draw(mSprite, states);
 }
+
+

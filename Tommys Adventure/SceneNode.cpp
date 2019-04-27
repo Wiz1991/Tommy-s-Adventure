@@ -35,7 +35,8 @@ void SceneNode::update(sf::Time dT) {
 }
 void SceneNode::onCommand(const Command& command, sf::Time dT)
 {
-	if (command.category & getCategory()) {
+
+	if (command.category & this->getCategory()) {
 		command.action(*this, dT);
 	}
 	for (Ptr& child : mChildren) {

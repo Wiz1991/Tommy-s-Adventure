@@ -8,9 +8,12 @@
 
 namespace Textures {
 	enum ID {
-		AIRPLANE,
+		PlayerAirplane,
 		BACKGROUND,
-		test
+		RaptorAirplane,
+		EagleAirplane,
+		OwlAirplane
+		
 	};
 }
 

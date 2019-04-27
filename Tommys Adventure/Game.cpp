@@ -5,13 +5,15 @@ Game::Game()
 	mWorld(mWindow),
 	mFont(),
 	mStatisticsFrames(0),
-	mUpdateTime()
+	mUpdateTime(),
+	mPlayer()
 {
 	mFont.loadFromFile("fonts/micross.ttf");
 	mStatisticsText.setFont(mFont);
 	mStatisticsText.setPosition(5.f, 5.f);
-	mStatisticsText.setCharacterSize(15);
+	mStatisticsText.setCharacterSize(10);
 	mWindow.setVerticalSyncEnabled(false);
+	mWindow.setFramerateLimit(60);
 }
 
 void Game::Run()
@@ -65,7 +67,7 @@ void Game::updateStatistics(sf::Time timeElapsed)
 	mUpdateTime += timeElapsed;
 	mStatisticsFrames += 1;
 	if (mUpdateTime >= sf::seconds(1.0f)) {
-		mStatisticsText.setString("FPS: " + toString<float>(mStatisticsFrames));
+		mStatisticsText.setString("FPS: " + toString<const float>(mStatisticsFrames));
 		mUpdateTime -= sf::seconds(1.0f);
 		mStatisticsFrames = 0;
 	}
