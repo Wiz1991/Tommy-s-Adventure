@@ -43,6 +43,9 @@
     <Filter Include="Header Files\Utilities">
       <UniqueIdentifier>{bcafba7d-6873-42d3-8b2b-7b061987cffc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\State">
+      <UniqueIdentifier>{d622cb32-8729-48b7-998f-36572f269df4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="World.cpp">
@@ -77,6 +80,12 @@
     </ClCompile>
     <ClCompile Include="Entity.cpp">
       <Filter>Source Files\Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="StateStack.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="State.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +130,15 @@
     </ClInclude>
     <ClInclude Include="resource.h">
       <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateStack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="State.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StateIdentifiers.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

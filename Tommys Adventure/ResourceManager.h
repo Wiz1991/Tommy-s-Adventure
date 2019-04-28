@@ -5,6 +5,7 @@
 #include <assert.h>
 #include <vector>
 #include <iostream>
+#include <SFML/Graphics/Font.hpp>
 
 namespace Textures {
 	enum ID {
@@ -16,6 +17,13 @@ namespace Textures {
 		
 	};
 }
+namespace Fonts {
+	enum ID {
+
+	};
+}
+
+
 
 template<typename Resource, typename Indentifier>
 class ResourceManager
@@ -37,4 +45,27 @@ public:
 private:
 	std::map<Indentifier, std::unique_ptr<Resource>> mResourceMap;
 };
+
+typedef ResourceManager <sf::Texture, Textures::ID> TextureHolder;
+typedef ResourceManager <sf::Font, Fonts::ID> FontHolder;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
