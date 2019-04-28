@@ -8,7 +8,7 @@
 #include "Airplane.h"
 #include "CommandQueue.h"
 #include "Command.h"
-#include "Projectile.h"
+
 
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/Texture.hpp>
