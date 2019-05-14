@@ -11,7 +11,7 @@
 const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 
 Application::Application()
-: mWindow(sf::VideoMode(640, 480), "States", sf::Style::Close)
+: mWindow(sf::VideoMode(640, 480), "Tommy", sf::Style::Close)
 , mTextures()
 , mFonts()
 , mPlayer()
@@ -22,8 +22,8 @@ Application::Application()
 {
 	mWindow.setKeyRepeatEnabled(false);
 
-	mFonts.load(Fonts::Main, "Media/Sansation.ttf");
-	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+	mFonts.load(Fonts::Main, "fonts/micross.ttf");
+	mTextures.load(Textures::TitleScreen, "textures/title.jpg");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);

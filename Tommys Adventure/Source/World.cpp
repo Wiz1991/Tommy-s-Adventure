@@ -53,9 +53,9 @@ CommandQueue& World::getCommandQueue()
 
 void World::loadTextures()
 {
-	mTextures.load(Textures::Eagle, "Media/Textures/Eagle.png");
-	mTextures.load(Textures::Raptor, "Media/Textures/Raptor.png");
-	mTextures.load(Textures::Desert, "Media/Textures/Desert.png");
+	mTextures.load(Textures::Eagle, "textures/pl1dm0.png");
+	mTextures.load(Textures::Raptor, "textures/pl2dm0.png");
+	mTextures.load(Textures::Desert, "textures/desert.png");
 }
 
 void World::buildScene()
