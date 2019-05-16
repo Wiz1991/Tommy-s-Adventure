@@ -103,8 +103,8 @@ void MenuState::updateOptionText()
 
 	// White all texts
 	FOREACH(sf::Text& text, mOptions)
-		text.setColor(sf::Color::White);
+		text.setFillColor(sf::Color::White);
 
 	// Red the selected text
-	mOptions[mOptionIndex].setColor(sf::Color::Red);
+	mOptions[mOptionIndex].setFillColor(sf::Color::Red);
 }

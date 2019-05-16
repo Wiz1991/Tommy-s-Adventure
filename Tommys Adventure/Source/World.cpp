@@ -1,3 +1,6 @@
+#include "..\..\Snake\world.h"
+#include "..\..\Snake\World.h"
+#include "..\..\Snake\World.h"
 #include <Book/World.hpp>
 
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -39,6 +42,8 @@ void World::update(sf::Time dt)
 	mSceneGraph.update(dt);
 	adaptPlayerPosition();
 }
+
+
 
 void World::draw()
 {
