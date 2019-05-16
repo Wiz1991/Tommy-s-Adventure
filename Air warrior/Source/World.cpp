@@ -1,6 +1,4 @@
-#include "..\..\Snake\world.h"
-#include "..\..\Snake\World.h"
-#include "..\..\Snake\World.h"
+
 #include <Book/World.hpp>
 
 #include <SFML/Graphics/RenderWindow.hpp>

@@ -1,11 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.202
+VisualStudioVersion = 16.0.28803.452
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Air warrior", "Tommys Adventure\Tommys Adventure.vcxproj", "{EFC10C1D-27B5-4152-93E2-4E09E806C004}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Snake", "Snake\Snake.vcxproj", "{B93A5976-9597-420E-BA4F-F85C7A089C6F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Air warrior", "Air warrior\Air Warrior.vcxproj", "{EFC10C1D-27B5-4152-93E2-4E09E806C004}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,19 +21,11 @@ Global
 		{EFC10C1D-27B5-4152-93E2-4E09E806C004}.Release|x64.Build.0 = Release|x64
 		{EFC10C1D-27B5-4152-93E2-4E09E806C004}.Release|x86.ActiveCfg = Release|Win32
 		{EFC10C1D-27B5-4152-93E2-4E09E806C004}.Release|x86.Build.0 = Release|Win32
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Debug|x64.ActiveCfg = Debug|x64
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Debug|x64.Build.0 = Debug|x64
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Debug|x86.ActiveCfg = Debug|Win32
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Debug|x86.Build.0 = Debug|Win32
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Release|x64.ActiveCfg = Release|x64
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Release|x64.Build.0 = Release|x64
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Release|x86.ActiveCfg = Release|Win32
-		{B93A5976-9597-420E-BA4F-F85C7A089C6F}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C10698A3-F4FF-4FCD-B574-AE11A3398E0D}
+		SolutionGuid = {D41F5C8F-5157-405F-A316-1B7804B38E8E}
 	EndGlobalSection
 EndGlobal
