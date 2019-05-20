@@ -1,9 +1,11 @@
 #include <Book/Aircraft.hpp>
 #include <Book/ResourceHolder.hpp>
 #include <Book/Utility.hpp>
-
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RenderStates.hpp>
+#include <Book/DataTable.h>
+
+std::vector<AircraftData> Table = initiliazeAircraftData();
 
 Textures::ID toTextureID(Aircraft::Type type)
 {

@@ -3,7 +3,6 @@
 
 #include <Book/Entity.hpp>
 #include <Book/ResourceIdentifiers.hpp>
-
 #include <SFML/Graphics/Sprite.hpp>
 
 class Aircraft : public Entity
@@ -13,6 +12,7 @@ public:
 	{
 		Eagle,
 		Raptor,
+		TypeCount
 	};
 
 public:
