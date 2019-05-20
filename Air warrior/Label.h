@@ -17,11 +17,10 @@ namespace GUI
 		void setText(std::string text);
 
 		void handleEvent(const sf::Event& event);
-	
+
 	private:
 		void draw(sf::RenderTarget& target, sf::RenderStates states);
 	private:
 		sf::Text mText;
 	};
 }
-

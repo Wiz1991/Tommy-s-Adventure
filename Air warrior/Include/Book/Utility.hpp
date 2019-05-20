@@ -3,7 +3,6 @@
 
 #include <sstream>
 
-
 namespace sf
 {
 	class Sprite;

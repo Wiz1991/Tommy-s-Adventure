@@ -1,7 +1,6 @@
 #ifndef BOOK_RESOURCEIDENTIFIERS_HPP
 #define BOOK_RESOURCEIDENTIFIERS_HPP
 
-
 // Forward declaration of SFML classes
 namespace sf
 {

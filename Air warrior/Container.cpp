@@ -1,7 +1,5 @@
 #include "Container.h"
 
-
-
 namespace GUI {
 	Container::Container()
 		: mChildren()
@@ -21,11 +19,11 @@ namespace GUI {
 		return false;
 	}
 
-	void Container::handelEvent(const sf::Event& event)
+	void Container::handelEvent(const sf::Event & event)
 	{
 		if (hasSelection() && mChildren[mSelectedChild]->isActive())
 			mChildren[mSelectedChild]->handleEvent(event);
-		else if (event.type == sf::Event::KeyReleased) 
+		else if (event.type == sf::Event::KeyReleased)
 		{
 			if (event.key.code == sf::Keyboard::W || event.key.code == sf::Keyboard::Up)
 				selectPrevious();
@@ -37,7 +35,6 @@ namespace GUI {
 					mChildren[mSelectedChild]->activate();
 			}
 		}
-
 	}
 
 	void Container::select(std::size_t index)
@@ -53,7 +50,7 @@ namespace GUI {
 	void Container::selectNext()
 	{
 		if (!hasSelection()) return;
-		int index=mSelectedChild;
+		int index = mSelectedChild;
 		do {
 			index = (index + 1);
 		} while (!mChildren[index]->isSelectable());
@@ -66,7 +63,6 @@ namespace GUI {
 		int index = mSelectedChild;
 		do {
 			index = --index;
-
 		} while (!mChildren[index]->isSelectable());
 		select(index);
 	}
@@ -75,11 +71,11 @@ namespace GUI {
 	{
 		return mSelectedChild >= 0;
 	}
-	void Container::draw(sf::RenderTarget& target, sf::RenderStates states) const
+	void Container::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
 		states.transform *= getTransform();
 
-		   for(const Component::Ptr& child : mChildren)
+		for (const Component::Ptr& child : mChildren)
 			target.draw(*child, states);
 	}
 }

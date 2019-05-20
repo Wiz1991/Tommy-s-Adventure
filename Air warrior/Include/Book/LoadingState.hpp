@@ -8,7 +8,6 @@
 
 #include <Book/ParallelTask.hpp>
 
-
 class LoadingState : public State
 {
 public:

@@ -7,18 +7,17 @@
 #include <Book/MenuState.hpp>
 #include <Book/PauseState.hpp>
 
-
-const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
+const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Application::Application()
-: mWindow(sf::VideoMode(640, 480), "Tommy", sf::Style::Close)
-, mTextures()
-, mFonts()
-, mPlayer()
-, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer))
-, mStatisticsText()
-, mStatisticsUpdateTime()
-, mStatisticsNumFrames(0)
+	: mWindow(sf::VideoMode(640, 480), "Tommy", sf::Style::Close)
+	, mTextures()
+	, mFonts()
+	, mPlayer()
+	, mStateStack(State::Context(mWindow, mTextures, mFonts, mPlayer))
+	, mStatisticsText()
+	, mStatisticsUpdateTime()
+	, mStatisticsNumFrames(0)
 {
 	mWindow.setKeyRepeatEnabled(false);
 

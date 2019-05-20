@@ -1,7 +1,5 @@
 #include "Label.h"
 
-
-
 namespace GUI
 {
 	Label::Label(std::string text, const FontHolder& fonts)
@@ -23,12 +21,10 @@ namespace GUI
 	{
 		//do nothing
 	}
-	
+
 	void Label::draw(sf::RenderTarget& target, sf::RenderStates states)
 	{
 		states.transform *= getTransform();
 		target.draw(mText, states);
 	}
 }
-
-

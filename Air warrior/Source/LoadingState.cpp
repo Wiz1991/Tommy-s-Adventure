@@ -5,9 +5,8 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
 
-
 LoadingState::LoadingState(StateStack& stack, Context context)
-: State(stack, context)
+	: State(stack, context)
 {
 	sf::RenderWindow& window = *getContext().window;
 	sf::Font& font = context.fonts->get(Fonts::Main);
@@ -22,7 +21,7 @@ LoadingState::LoadingState(StateStack& stack, Context context)
 	mProgressBarBackground.setSize(sf::Vector2f(viewSize.x - 20, 10));
 	mProgressBarBackground.setPosition(10, mLoadingText.getPosition().y + 40);
 
-	mProgressBar.setFillColor(sf::Color(100,100,100));
+	mProgressBar.setFillColor(sf::Color(100, 100, 100));
 	mProgressBar.setSize(sf::Vector2f(200, 10));
 	mProgressBar.setPosition(10, mLoadingText.getPosition().y + 40);
 
@@ -57,7 +56,7 @@ bool LoadingState::update(sf::Time)
 	return true;
 }
 
-bool LoadingState::handleEvent(const sf::Event& event)
+bool LoadingState::handleEvent(const sf::Event & event)
 {
 	return true;
 }

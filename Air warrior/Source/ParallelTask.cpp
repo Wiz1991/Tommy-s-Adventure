@@ -1,9 +1,8 @@
 #include <Book/ParallelTask.hpp>
 
-
 ParallelTask::ParallelTask()
-: mThread(&ParallelTask::runTask, this)
-, mFinished(false)
+	: mThread(&ParallelTask::runTask, this)
+	, mFinished(false)
 {
 }
 
@@ -34,7 +33,7 @@ void ParallelTask::runTask()
 	bool ended = false;
 	while (!ended)
 	{
-		sf::Lock lock(mMutex); // Protect the clock 
+		sf::Lock lock(mMutex); // Protect the clock
 		if (mElapsedTime.getElapsedTime().asSeconds() >= 10.f)
 			ended = true;
 	}
@@ -42,5 +41,5 @@ void ParallelTask::runTask()
 	{ // mFinished may be accessed from multiple threads, protect it
 		sf::Lock lock(mMutex);
 		mFinished = true;
-	}	
+	}
 }

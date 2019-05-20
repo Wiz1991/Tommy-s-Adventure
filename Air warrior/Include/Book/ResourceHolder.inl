@@ -1,4 +1,3 @@
-
 template <typename Resource, typename Identifier>
 void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename)
 {
@@ -13,7 +12,7 @@ void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string
 
 template <typename Resource, typename Identifier>
 template <typename Parameter>
-void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string& filename, const Parameter& secondParam)
+void ResourceHolder<Resource, Identifier>::load(Identifier id, const std::string & filename, const Parameter & secondParam)
 {
 	// Create and load resource
 	std::unique_ptr<Resource> resource(new Resource());
@@ -43,7 +42,7 @@ const Resource& ResourceHolder<Resource, Identifier>::get(Identifier id) const
 }
 
 template <typename Resource, typename Identifier>
-void ResourceHolder<Resource, Identifier>::insertResource(Identifier id, std::unique_ptr<Resource> resource) 
+void ResourceHolder<Resource, Identifier>::insertResource(Identifier id, std::unique_ptr<Resource> resource)
 {
 	// Insert and check success
 	auto inserted = mResourceMap.insert(std::make_pair(id, std::move(resource)));

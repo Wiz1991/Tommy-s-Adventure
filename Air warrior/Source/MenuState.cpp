@@ -6,17 +6,16 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/View.hpp>
 
-
 MenuState::MenuState(StateStack& stack, Context context)
-: State(stack, context)
-, mOptions()
-, mOptionIndex(0)
+	: State(stack, context)
+	, mOptions()
+	, mOptionIndex(0)
 {
 	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
 	sf::Font& font = context.fonts->get(Fonts::Main);
 
 	mBackgroundSprite.setTexture(texture);
-	
+
 	// A simple menu demonstration
 	sf::Text playOption;
 	playOption.setFont(font);
@@ -42,7 +41,7 @@ void MenuState::draw()
 	window.setView(window.getDefaultView());
 	window.draw(mBackgroundSprite);
 
-	FOREACH(const sf::Text& text, mOptions)
+	FOREACH(const sf::Text & text, mOptions)
 		window.draw(text);
 }
 
@@ -51,7 +50,7 @@ bool MenuState::update(sf::Time)
 	return true;
 }
 
-bool MenuState::handleEvent(const sf::Event& event)
+bool MenuState::handleEvent(const sf::Event & event)
 {
 	// The demonstration menu logic
 	if (event.type != sf::Event::KeyPressed)
@@ -102,7 +101,7 @@ void MenuState::updateOptionText()
 		return;
 
 	// White all texts
-	FOREACH(sf::Text& text, mOptions)
+	FOREACH(sf::Text & text, mOptions)
 		text.setFillColor(sf::Color::White);
 
 	// Red the selected text

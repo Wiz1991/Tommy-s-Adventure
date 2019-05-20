@@ -4,12 +4,11 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
-
 TitleState::TitleState(StateStack& stack, Context context)
-: State(stack, context)
-, mText()
-, mShowText(true)
-, mTextEffectTime(sf::Time::Zero)
+	: State(stack, context)
+	, mText()
+	, mShowText(true)
+	, mTextEffectTime(sf::Time::Zero)
 {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
 
@@ -41,7 +40,7 @@ bool TitleState::update(sf::Time dt)
 	return true;
 }
 
-bool TitleState::handleEvent(const sf::Event& event)
+bool TitleState::handleEvent(const sf::Event & event)
 {
 	// If any key is pressed, trigger the next screen
 	if (event.type == sf::Event::KeyPressed)

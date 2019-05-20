@@ -1,39 +1,35 @@
 #include "Component.h"
-
-
-
-GUI::Component::Component()
+namespace GUI
 {
-}
+	Component::Component() :
+		mIsSelected(false),
+		mIsActive(false)
+	{
+	}
 
+	bool Component::isSelectable() const
+	{
+		return false;
+	}
 
-GUI::Component::~Component()
-{
-}
+	void Component::select()
+	{
+	}
 
-bool GUI::Component::isSelectable() const
-{
-	return false;
-}
+	void Component::deselect()
+	{
+	}
 
+	bool Component::isActive() const
+	{
+		return false;
+	}
 
-void GUI::Component::select()
-{
-}
+	void Component::activate()
+	{
+	}
 
-void GUI::Component::deselect()
-{
-}
-
-bool GUI::Component::isActive() const
-{
-	return false;
-}
-
-void GUI::Component::activate()
-{
-}
-
-void GUI::Component::deactivate()
-{
+	void Component::deactivate()
+	{
+	}
 }

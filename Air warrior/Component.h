@@ -7,14 +7,14 @@ namespace sf {
 }
 #include <memory>
 namespace GUI {
-	class Component : public sf::Drawable , public sf::Transformable, private sf::NonCopyable
+	class Component : public sf::Drawable, public sf::Transformable, private sf::NonCopyable
 	{
 	public:
 		typedef std::shared_ptr<Component> Ptr;
 	public:
 		Component();
-		~Component();
-		virtual bool isSelected() const =0;
+
+		virtual bool isSelected() const = 0;
 		bool isSelectable() const;
 		virtual void select();
 		virtual void deselect();
@@ -27,4 +27,3 @@ namespace GUI {
 		bool mIsActive;
 	};
 }
-
