@@ -166,6 +166,7 @@
     <ClInclude Include="Include\Book\TitleState.hpp" />
     <ClInclude Include="Include\Book\Utility.hpp" />
     <ClInclude Include="Include\Book\World.hpp" />
+    <ClInclude Include="Label.h" />
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +176,7 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Container.cpp" />
+    <ClCompile Include="Label.cpp" />
     <ClCompile Include="Source\Aircraft.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Command.cpp" />

@@ -64,6 +64,9 @@
     <ClCompile Include="Container.cpp">
       <Filter>Source\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="Label.cpp">
+      <Filter>Source\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\Book\Aircraft.hpp">
@@ -142,6 +145,9 @@
       <Filter>Headers\GUI</Filter>
     </ClInclude>
     <ClInclude Include="Container.h">
+      <Filter>Headers\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Label.h">
       <Filter>Headers\GUI</Filter>
     </ClInclude>
   </ItemGroup>
