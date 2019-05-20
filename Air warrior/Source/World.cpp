@@ -13,7 +13,7 @@ World::World(sf::RenderWindow& window)
 	, mSceneLayers()
 	, mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000000.f)
 	, mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f)
-	, mScrollSpeed(-500.f)
+	, mScrollSpeed(-250.f)
 	, mPlayerAircraft(nullptr)
 {
 	loadTextures();
@@ -52,8 +52,8 @@ CommandQueue& World::getCommandQueue()
 
 void World::loadTextures()
 {
-	mTextures.load(Textures::Eagle, "textures/pl1dm0.png");
-	mTextures.load(Textures::Raptor, "textures/pl2dm0.png");
+	mTextures.load(Textures::Eagle, "textures/Eagle.png");
+	mTextures.load(Textures::Raptor, "textures/Raptor.png");
 	mTextures.load(Textures::Desert, "textures/desert.png");
 }
 

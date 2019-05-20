@@ -6,6 +6,7 @@
 #include <Book/GameState.hpp>
 #include <Book/MenuState.hpp>
 #include <Book/PauseState.hpp>
+#include <Book/SettingsState.h>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
@@ -23,6 +24,9 @@ Application::Application()
 
 	mFonts.load(Fonts::Main, "fonts/micross.ttf");
 	mTextures.load(Textures::TitleScreen, "textures/title.jpg");
+	mTextures.load(Textures::ButtonPressed, "textures/ButtonPressed.png");
+	mTextures.load(Textures::ButtonSelected, "textures/ButtonSelected.png");
+	mTextures.load(Textures::ButtonNormal, "textures/ButtonNormal.png");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
@@ -106,4 +110,5 @@ void Application::registerStates()
 	mStateStack.registerState<MenuState>(States::Menu);
 	mStateStack.registerState<GameState>(States::Game);
 	mStateStack.registerState<PauseState>(States::Pause);
+	mStateStack.registerState<SettingsState>(States::Settings);
 }
