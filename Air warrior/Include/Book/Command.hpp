@@ -29,6 +29,7 @@ std::function<void(SceneNode&, sf::Time)> derivedAction(Function fn)
 
 		// Downcast node and invoke function on it
 		fn(static_cast<GameObject&>(node), dt);
+		
 	};
 }
 

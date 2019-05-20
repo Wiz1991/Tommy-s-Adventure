@@ -13,9 +13,9 @@ World::World(sf::RenderWindow& window)
 , mTextures() 
 , mSceneGraph()
 , mSceneLayers()
-, mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000.f)
+, mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 2000000.f)
 , mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f)
-, mScrollSpeed(-50.f)
+, mScrollSpeed(-500.f)
 , mPlayerAircraft(nullptr)
 {
 	loadTextures();

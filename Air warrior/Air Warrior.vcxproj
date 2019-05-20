@@ -141,6 +141,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Component.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="Include\Book\Aircraft.hpp" />
     <ClInclude Include="Include\Book\Application.hpp" />
     <ClInclude Include="Include\Book\Category.hpp" />
@@ -171,6 +173,8 @@
     <None Include="Include\Book\Utility.inl" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="Source\Aircraft.cpp" />
     <ClCompile Include="Source\Application.cpp" />
     <ClCompile Include="Source\Command.cpp" />
