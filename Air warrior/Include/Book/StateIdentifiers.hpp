@@ -1,6 +1,7 @@
 #ifndef BOOK_STATEIDENTIFIERS_HPP
 #define BOOK_STATEIDENTIFIERS_HPP
 
+
 namespace States
 {
 	enum ID
@@ -11,7 +12,8 @@ namespace States
 		Game,
 		Loading,
 		Pause,
-		Settings
+		Settings,
+		GameOver
 	};
 }
 

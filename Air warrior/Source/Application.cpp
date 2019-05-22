@@ -6,12 +6,13 @@
 #include <Book/GameState.hpp>
 #include <Book/MenuState.hpp>
 #include <Book/PauseState.hpp>
-#include <Book/SettingsState.h>
+#include <Book/SettingsState.hpp>
+#include <Book/GameOverState.hpp>
 
 const sf::Time Application::TimePerFrame = sf::seconds(1.f / 60.f);
 
 Application::Application()
-	: mWindow(sf::VideoMode(640, 480), "Tommy", sf::Style::Close)
+	: mWindow(sf::VideoMode(1024, 768), "AirWarrior", sf::Style::Close)
 	, mTextures()
 	, mFonts()
 	, mPlayer()
@@ -22,11 +23,13 @@ Application::Application()
 {
 	mWindow.setKeyRepeatEnabled(false);
 
-	mFonts.load(Fonts::Main, "fonts/micross.ttf");
-	mTextures.load(Textures::TitleScreen, "textures/title.jpg");
-	mTextures.load(Textures::ButtonPressed, "textures/ButtonPressed.png");
-	mTextures.load(Textures::ButtonSelected, "textures/ButtonSelected.png");
-	mTextures.load(Textures::ButtonNormal, "textures/ButtonNormal.png");
+	mFonts.load(Fonts::Main, "Media/Sansation.ttf");
+
+	mTextures.load(Textures::TitleScreen, "Media/Textures/TitleScreen.png");
+	mTextures.load(Textures::ButtonNormal, "Media/Textures/ButtonNormal.png");
+	mTextures.load(Textures::ButtonSelected, "Media/Textures/ButtonSelected.png");
+	mTextures.load(Textures::ButtonPressed, "Media/Textures/ButtonPressed.png");
+	mTextures.load(Textures::MainMenu, "Media/Textures/MainMenu.png");
 
 	mStatisticsText.setFont(mFonts.get(Fonts::Main));
 	mStatisticsText.setPosition(5.f, 5.f);
@@ -111,4 +114,5 @@ void Application::registerStates()
 	mStateStack.registerState<GameState>(States::Game);
 	mStateStack.registerState<PauseState>(States::Pause);
 	mStateStack.registerState<SettingsState>(States::Settings);
+	mStateStack.registerState<GameOverState>(States::GameOver);
 }

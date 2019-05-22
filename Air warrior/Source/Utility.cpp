@@ -3,426 +3,134 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
 
+#include <random>
 #include <cmath>
+#include <ctime>
+#include <cassert>
 
-std::string keyToString(sf::Keyboard::Key key)
+
+namespace
 {
-	std::string ret;
-	switch (key) {
-	case sf::Keyboard::A:
-
-		ret = "A";
-		break;
-	case sf::Keyboard::B:
-
-		ret = "B";
-		break;
-	case sf::Keyboard::C:
-
-		ret = "C";
-		break;
-	case sf::Keyboard::D:
-
-		ret = "D";
-		break;
-	case sf::Keyboard::E:
-
-		ret = "E";
-		break;
-	case sf::Keyboard::F:
-
-		ret = "F";
-		break;
-	case sf::Keyboard::G:
-
-		ret = "G";
-		break;
-	case sf::Keyboard::H:
-
-		ret = "H";
-		break;
-	case sf::Keyboard::I:
-
-		ret = "I";
-		break;
-	case sf::Keyboard::J:
-
-		ret = "J";
-		break;
-	case sf::Keyboard::K:
-
-		ret = "K";
-		break;
-	case sf::Keyboard::L:
-
-		ret = "L";
-		break;
-	case sf::Keyboard::M:
-
-		ret = "M";
-		break;
-	case sf::Keyboard::N:
-
-		ret = "N";
-		break;
-	case sf::Keyboard::O:
-
-		ret = "O";
-		break;
-	case sf::Keyboard::P:
-
-		ret = "P";
-		break;
-	case sf::Keyboard::Q:
-
-		ret = "Q";
-		break;
-	case sf::Keyboard::R:
-
-		ret = "R";
-		break;
-	case sf::Keyboard::S:
-
-		ret = "S";
-		break;
-	case sf::Keyboard::T:
-
-		ret = "T";
-		break;
-	case sf::Keyboard::U:
-
-		ret = "U";
-		break;
-	case sf::Keyboard::V:
-
-		ret = "V";
-		break;
-	case sf::Keyboard::W:
-
-		ret = "W";
-		break;
-	case sf::Keyboard::X:
-
-		ret = "X";
-		break;
-	case sf::Keyboard::Y:
-
-		ret = "Y";
-		break;
-	case sf::Keyboard::Z:
-
-		ret = "Z";
-		break;
-	case sf::Keyboard::Num0:
-
-		ret = "Num0";
-		break;
-	case sf::Keyboard::Num1:
-
-		ret = "Num1";
-		break;
-	case sf::Keyboard::Num2:
-
-		ret = "Num2";
-		break;
-	case sf::Keyboard::Num3:
-
-		ret = "Num3";
-		break;
-	case sf::Keyboard::Num4:
-
-		ret = "Num4";
-		break;
-	case sf::Keyboard::Num5:
-
-		ret = "Num5";
-		break;
-	case sf::Keyboard::Num6:
-
-		ret = "Num6";
-		break;
-	case sf::Keyboard::Num7:
-
-		ret = "Num7";
-		break;
-	case sf::Keyboard::Num8:
-
-		ret = "Num8";
-		break;
-	case sf::Keyboard::Num9:
-
-		ret = "Num9";
-		break;
-	case sf::Keyboard::Escape:
-
-		ret = "Escape";
-		break;
-	case sf::Keyboard::LControl:
-
-		ret = "LControl";
-		break;
-	case sf::Keyboard::LShift:
-
-		ret = "LShift";
-		break;
-	case sf::Keyboard::LAlt:
-
-		ret = "LAlt";
-		break;
-	case sf::Keyboard::LSystem:
-
-		ret = "LSystem";
-		break;
-	case sf::Keyboard::RControl:
-
-		ret = "RControl";
-		break;
-	case sf::Keyboard::RShift:
-
-		ret = "RShift";
-		break;
-	case sf::Keyboard::RAlt:
-
-		ret = "RAlt";
-		break;
-	case sf::Keyboard::RSystem:
-
-		ret = "RSystem";
-		break;
-	case sf::Keyboard::Menu:
-
-		ret = "Menu";
-		break;
-	case sf::Keyboard::LBracket:
-
-		ret = "LBracket";
-		break;
-	case sf::Keyboard::RBracket:
-
-		ret = "RBracket";
-		break;
-	case sf::Keyboard::SemiColon:
-
-		ret = "SemiColon";
-		break;
-	case sf::Keyboard::Comma:
-
-		ret = "Comma";
-		break;
-	case sf::Keyboard::Period:
-
-		ret = "Period";
-		break;
-	case sf::Keyboard::Quote:
-
-		ret = "Quote";
-		break;
-	case sf::Keyboard::Slash:
-
-		ret = "Slash";
-		break;
-	case sf::Keyboard::BackSlash:
-
-		ret = "BackSlash";
-		break;
-	case sf::Keyboard::Tilde:
-
-		ret = "Tilde";
-		break;
-	case sf::Keyboard::Equal:
-
-		ret = "Equal";
-		break;
-	case sf::Keyboard::Dash:
-
-		ret = "Dash";
-		break;
-	case sf::Keyboard::Space:
-
-		ret = "Space";
-		break;
-	case sf::Keyboard::Return:
-
-		ret = "Return";
-		break;
-	case sf::Keyboard::BackSpace:
-
-		ret = "BackSpace";
-		break;
-	case sf::Keyboard::Tab:
-
-		ret = "Tab";
-		break;
-	case sf::Keyboard::PageUp:
-
-		ret = "PageUp";
-		break;
-	case sf::Keyboard::PageDown:
-
-		ret = "PageDown";
-		break;
-	case sf::Keyboard::End:
-
-		ret = "End";
-		break;
-	case sf::Keyboard::Home:
-
-		ret = "Home";
-		break;
-	case sf::Keyboard::Insert:
-
-		ret = "Insert";
-		break;
-	case sf::Keyboard::Delete:
-
-		ret = "Delete";
-		break;
-	case sf::Keyboard::Add:
-
-		ret = "Add";
-		break;
-	case sf::Keyboard::Subtract:
-
-		ret = "Subtract";
-		break;
-	case sf::Keyboard::Multiply:
-
-		ret = "Multiply";
-		break;
-	case sf::Keyboard::Divide:
-
-		ret = "Divide";
-		break;
-	case sf::Keyboard::Left:
-
-		ret = "Left Arrow";
-		break;
-	case sf::Keyboard::Right:
-
-		ret = "Right Arrow";
-		break;
-	case sf::Keyboard::Up:
-
-		ret = "Up Arrow";
-		break;
-	case sf::Keyboard::Down:
-
-		ret = "Down Arrow";
-		break;
-	case sf::Keyboard::Numpad0:
-
-		ret = "Numpad0";
-		break;
-	case sf::Keyboard::Numpad1:
-
-		ret = "Numpad1";
-		break;
-	case sf::Keyboard::Numpad2:
-
-		ret = "Numpad2";
-		break;
-	case sf::Keyboard::Numpad3:
-
-		ret = "Numpad3";
-		break;
-	case sf::Keyboard::Numpad4:
-
-		ret = "Numpad4";
-		break;
-	case sf::Keyboard::Numpad5:
-
-		ret = "Numpad5";
-		break;
-	case sf::Keyboard::Numpad6:
-
-		ret = "Numpad6";
-		break;
-	case sf::Keyboard::Numpad7:
-
-		ret = "Numpad7";
-		break;
-	case sf::Keyboard::Numpad8:
-
-		ret = "Numpad8";
-		break;
-	case sf::Keyboard::Numpad9:
-
-		ret = "Numpad9";
-		break;
-	case sf::Keyboard::F1:
-
-		ret = "F1";
-		break;
-	case sf::Keyboard::F2:
-
-		ret = "F2";
-		break;
-	case sf::Keyboard::F3:
-
-		ret = "F3";
-		break;
-	case sf::Keyboard::F4:
-
-		ret = "F4";
-		break;
-	case sf::Keyboard::F5:
-
-		ret = "F5";
-		break;
-	case sf::Keyboard::F6:
-
-		ret = "F6";
-		break;
-	case sf::Keyboard::F7:
-
-		ret = "F7";
-		break;
-	case sf::Keyboard::F8:
-
-		ret = "F8";
-		break;
-	case sf::Keyboard::F9:
-
-		ret = "F9";
-		break;
-	case sf::Keyboard::F10:
-
-		ret = "F10";
-		break;
-	case sf::Keyboard::F11:
-
-		ret = "F11";
-		break;
-	case sf::Keyboard::F12:
-
-		ret = "F12";
-		break;
-	case sf::Keyboard::F13:
-
-		ret = "F13";
-		break;
-	case sf::Keyboard::F14:
-
-		ret = "F14";
-		break;
-	case sf::Keyboard::F15:
-
-		ret = "F15";
-		break;
-	case sf::Keyboard::Pause:
-
-		ret = "Pause";
-		break;
-	case sf::Keyboard::KeyCount:
-
-		ret = "KeyCount";
-		break;
-
-	default:
-		ret = "Unknown";
-		break;
+	std::default_random_engine createRandomEngine()
+	{
+		auto seed = static_cast<unsigned long>(std::time(nullptr));
+		return std::default_random_engine(seed);
 	}
-	return ret;
+
+	auto RandomEngine = createRandomEngine();
+}
+
+std::string toString(sf::Keyboard::Key key)
+{
+	#define BOOK_KEYTOSTRING_CASE(KEY) case sf::Keyboard::KEY: return #KEY;
+
+	switch (key)
+	{
+		BOOK_KEYTOSTRING_CASE(Unknown)
+		BOOK_KEYTOSTRING_CASE(A)
+		BOOK_KEYTOSTRING_CASE(B)
+		BOOK_KEYTOSTRING_CASE(C)
+		BOOK_KEYTOSTRING_CASE(D)
+		BOOK_KEYTOSTRING_CASE(E)
+		BOOK_KEYTOSTRING_CASE(F)
+		BOOK_KEYTOSTRING_CASE(G)
+		BOOK_KEYTOSTRING_CASE(H)
+		BOOK_KEYTOSTRING_CASE(I)
+		BOOK_KEYTOSTRING_CASE(J)
+		BOOK_KEYTOSTRING_CASE(K)
+		BOOK_KEYTOSTRING_CASE(L)
+		BOOK_KEYTOSTRING_CASE(M)
+		BOOK_KEYTOSTRING_CASE(N)
+		BOOK_KEYTOSTRING_CASE(O)
+		BOOK_KEYTOSTRING_CASE(P)
+		BOOK_KEYTOSTRING_CASE(Q)
+		BOOK_KEYTOSTRING_CASE(R)
+		BOOK_KEYTOSTRING_CASE(S)
+		BOOK_KEYTOSTRING_CASE(T)
+		BOOK_KEYTOSTRING_CASE(U)
+		BOOK_KEYTOSTRING_CASE(V)
+		BOOK_KEYTOSTRING_CASE(W)
+		BOOK_KEYTOSTRING_CASE(X)
+		BOOK_KEYTOSTRING_CASE(Y)
+		BOOK_KEYTOSTRING_CASE(Z)
+		BOOK_KEYTOSTRING_CASE(Num0)
+		BOOK_KEYTOSTRING_CASE(Num1)
+		BOOK_KEYTOSTRING_CASE(Num2)
+		BOOK_KEYTOSTRING_CASE(Num3)
+		BOOK_KEYTOSTRING_CASE(Num4)
+		BOOK_KEYTOSTRING_CASE(Num5)
+		BOOK_KEYTOSTRING_CASE(Num6)
+		BOOK_KEYTOSTRING_CASE(Num7)
+		BOOK_KEYTOSTRING_CASE(Num8)
+		BOOK_KEYTOSTRING_CASE(Num9)
+		BOOK_KEYTOSTRING_CASE(Escape)
+		BOOK_KEYTOSTRING_CASE(LControl)
+		BOOK_KEYTOSTRING_CASE(LShift)
+		BOOK_KEYTOSTRING_CASE(LAlt)
+		BOOK_KEYTOSTRING_CASE(LSystem)
+		BOOK_KEYTOSTRING_CASE(RControl)
+		BOOK_KEYTOSTRING_CASE(RShift)
+		BOOK_KEYTOSTRING_CASE(RAlt)
+		BOOK_KEYTOSTRING_CASE(RSystem)
+		BOOK_KEYTOSTRING_CASE(Menu)
+		BOOK_KEYTOSTRING_CASE(LBracket)
+		BOOK_KEYTOSTRING_CASE(RBracket)
+		BOOK_KEYTOSTRING_CASE(SemiColon)
+		BOOK_KEYTOSTRING_CASE(Comma)
+		BOOK_KEYTOSTRING_CASE(Period)
+		BOOK_KEYTOSTRING_CASE(Quote)
+		BOOK_KEYTOSTRING_CASE(Slash)
+		BOOK_KEYTOSTRING_CASE(BackSlash)
+		BOOK_KEYTOSTRING_CASE(Tilde)
+		BOOK_KEYTOSTRING_CASE(Equal)
+		BOOK_KEYTOSTRING_CASE(Dash)
+		BOOK_KEYTOSTRING_CASE(Space)
+		BOOK_KEYTOSTRING_CASE(Return)
+		BOOK_KEYTOSTRING_CASE(BackSpace)
+		BOOK_KEYTOSTRING_CASE(Tab)
+		BOOK_KEYTOSTRING_CASE(PageUp)
+		BOOK_KEYTOSTRING_CASE(PageDown)
+		BOOK_KEYTOSTRING_CASE(End)
+		BOOK_KEYTOSTRING_CASE(Home)
+		BOOK_KEYTOSTRING_CASE(Insert)
+		BOOK_KEYTOSTRING_CASE(Delete)
+		BOOK_KEYTOSTRING_CASE(Add)
+		BOOK_KEYTOSTRING_CASE(Subtract)
+		BOOK_KEYTOSTRING_CASE(Multiply)
+		BOOK_KEYTOSTRING_CASE(Divide)
+		BOOK_KEYTOSTRING_CASE(Left)
+		BOOK_KEYTOSTRING_CASE(Right)
+		BOOK_KEYTOSTRING_CASE(Up)
+		BOOK_KEYTOSTRING_CASE(Down)
+		BOOK_KEYTOSTRING_CASE(Numpad0)
+		BOOK_KEYTOSTRING_CASE(Numpad1)
+		BOOK_KEYTOSTRING_CASE(Numpad2)
+		BOOK_KEYTOSTRING_CASE(Numpad3)
+		BOOK_KEYTOSTRING_CASE(Numpad4)
+		BOOK_KEYTOSTRING_CASE(Numpad5)
+		BOOK_KEYTOSTRING_CASE(Numpad6)
+		BOOK_KEYTOSTRING_CASE(Numpad7)
+		BOOK_KEYTOSTRING_CASE(Numpad8)
+		BOOK_KEYTOSTRING_CASE(Numpad9)
+		BOOK_KEYTOSTRING_CASE(F1)
+		BOOK_KEYTOSTRING_CASE(F2)
+		BOOK_KEYTOSTRING_CASE(F3)
+		BOOK_KEYTOSTRING_CASE(F4)
+		BOOK_KEYTOSTRING_CASE(F5)
+		BOOK_KEYTOSTRING_CASE(F6)
+		BOOK_KEYTOSTRING_CASE(F7)
+		BOOK_KEYTOSTRING_CASE(F8)
+		BOOK_KEYTOSTRING_CASE(F9)
+		BOOK_KEYTOSTRING_CASE(F10)
+		BOOK_KEYTOSTRING_CASE(F11)
+		BOOK_KEYTOSTRING_CASE(F12)
+		BOOK_KEYTOSTRING_CASE(F13)
+		BOOK_KEYTOSTRING_CASE(F14)
+		BOOK_KEYTOSTRING_CASE(F15)
+		BOOK_KEYTOSTRING_CASE(Pause)
+	}
+
+	return "";
 }
 
 void centerOrigin(sf::Sprite& sprite)
@@ -431,8 +139,35 @@ void centerOrigin(sf::Sprite& sprite)
 	sprite.setOrigin(std::floor(bounds.left + bounds.width / 2.f), std::floor(bounds.top + bounds.height / 2.f));
 }
 
-void centerOrigin(sf::Text & text)
+void centerOrigin(sf::Text& text)
 {
 	sf::FloatRect bounds = text.getLocalBounds();
 	text.setOrigin(std::floor(bounds.left + bounds.width / 2.f), std::floor(bounds.top + bounds.height / 2.f));
+}
+
+float toDegree(float radian)
+{
+	return 180.f / 3.141592653589793238462643383f * radian;
+}
+
+float toRadian(float degree)
+{
+	return 3.141592653589793238462643383f / 180.f * degree;
+}
+
+int randomInt(int exclusiveMax)
+{
+	std::uniform_int_distribution<> distr(0, exclusiveMax - 1);
+	return distr(RandomEngine);
+}
+
+float length(sf::Vector2f vector)
+{
+	return std::sqrt(vector.x * vector.x + vector.y * vector.y);
+}
+
+sf::Vector2f unitVector(sf::Vector2f vector)
+{
+	assert(vector != sf::Vector2f(0.f, 0.f));
+	return vector / length(vector);
 }

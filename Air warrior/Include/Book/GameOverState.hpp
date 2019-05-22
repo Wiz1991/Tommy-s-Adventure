@@ -1,5 +1,5 @@
-#ifndef BOOK_PAUSESTATE_HPP
-#define BOOK_PAUSESTATE_HPP
+#ifndef BOOK_GAMEOVERSTATE_HPP
+#define BOOK_GAMEOVERSTATE_HPP
 
 #include <Book/State.hpp>
 #include <Book/Container.hpp>
@@ -8,10 +8,10 @@
 #include <SFML/Graphics/Text.hpp>
 
 
-class PauseState : public State
+class GameOverState : public State
 {
 	public:
-							PauseState(StateStack& stack, Context context);
+							GameOverState(StateStack& stack, Context context);
 
 		virtual void		draw();
 		virtual bool		update(sf::Time dt);
@@ -19,9 +19,8 @@ class PauseState : public State
 
 
 	private:
-		sf::Sprite			mBackgroundSprite;
-		sf::Text			mPausedText;
-		GUI::Container 		mGUIContainer;
+		sf::Text			mGameOverText;
+		sf::Time			mElapsedTime;
 };
 
-#endif // BOOK_PAUSESTATE_HPP
+#endif // BOOK_GAMEOVERSTATE_HPP

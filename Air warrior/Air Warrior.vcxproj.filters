@@ -1,245 +1,197 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="Source\Main.cpp">
-      <Filter>Source</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Aircraft.cpp">
-      <Filter>Source\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Application.cpp">
-      <Filter>Source\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Command.cpp">
-      <Filter>Source\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\CommandQueue.cpp">
-      <Filter>Source\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Entity.cpp">
-      <Filter>Source\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\GameState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\LoadingState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\MenuState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\ParallelTask.cpp">
-      <Filter>Source\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\PauseState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Player.cpp">
-      <Filter>Source\Input</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SceneNode.cpp">
-      <Filter>Source\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SpriteNode.cpp">
-      <Filter>Source\Render</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\State.cpp">
-      <Filter>Source\State Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\StateStack.cpp">
-      <Filter>Source\State Manager</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TitleState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Utility.cpp">
-      <Filter>Source\Utilities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\World.cpp">
-      <Filter>Source\Application</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Button.cpp">
-      <Filter>Source\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Component.cpp">
-      <Filter>Source\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Container.cpp">
-      <Filter>Source\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\Label.cpp">
-      <Filter>Source\GUI</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\SettingsState.cpp">
-      <Filter>Source\States</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\DataTable.cpp">
-      <Filter>Source\Entities</Filter>
-    </ClCompile>
-    <ClCompile Include="Source\TextNode.cpp">
-      <Filter>Source\Render</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Include\Book\PauseState.hpp">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\MenuState.hpp">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\GameState.hpp">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\LoadingState.hpp">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\State.hpp">
-      <Filter>Headers\State Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\StateIdentifiers.hpp">
-      <Filter>Headers\State Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\StateStack.hpp">
-      <Filter>Headers\State Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\ResourceHolder.hpp">
-      <Filter>Headers\Resource Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\ResourceIdentifiers.hpp">
-      <Filter>Headers\Resource Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\TitleState.hpp">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Player.hpp">
-      <Filter>Headers\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Command.hpp">
-      <Filter>Headers\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\CommandQueue.hpp">
-      <Filter>Headers\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Category.hpp">
-      <Filter>Headers\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Entity.hpp">
-      <Filter>Headers\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Aircraft.hpp">
-      <Filter>Headers\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\SceneNode.hpp">
-      <Filter>Headers\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\SpriteNode.hpp">
-      <Filter>Headers\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Application.hpp">
-      <Filter>Headers\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Utility.hpp">
-      <Filter>Headers\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Foreach.hpp">
-      <Filter>Headers\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\ParallelTask.hpp">
-      <Filter>Headers\Utilities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\World.hpp">
-      <Filter>Headers\Application</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Button.hpp">
-      <Filter>Headers\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Component.hpp">
-      <Filter>Headers\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Container.hpp">
-      <Filter>Headers\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\Label.hpp">
-      <Filter>Headers\GUI</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\SettingsState.h">
-      <Filter>Headers\States</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\DataTable.h">
-      <Filter>Headers\Entities</Filter>
-    </ClInclude>
-    <ClInclude Include="Include\Book\TextNode.h">
-      <Filter>Headers\Render</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Include\Book\ResourceHolder.inl">
-      <Filter>Source\Resource Manager</Filter>
-    </None>
-    <None Include="Include\Book\Utility.inl">
-      <Filter>Source\Utilities</Filter>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Headers">
       <UniqueIdentifier>{053dc6a1-599d-4d38-a6ac-415bd9a4d315}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source">
       <UniqueIdentifier>{b4604490-11e3-4f10-bd57-ddad8c3a1dd1}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\GUI">
-      <UniqueIdentifier>{6d6694cb-57c4-4ac3-81aa-6a6f6efd55ff}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\GUI">
-      <UniqueIdentifier>{3a1fa3bb-3421-46b3-9a97-adb7943dd926}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\States">
-      <UniqueIdentifier>{51c03981-60f4-46dc-a506-bb16a1d53670}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\State Manager">
-      <UniqueIdentifier>{1f97eb78-bca7-4c41-ba90-a05a504b6da6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Resource Manager">
-      <UniqueIdentifier>{1aec1869-a9cf-484c-8d74-291293f1b5eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Input">
-      <UniqueIdentifier>{94636744-bc51-4539-97a1-3cca34965d30}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Entities">
-      <UniqueIdentifier>{fc25f8d5-edea-49da-9e47-91612f9b0e9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Render">
-      <UniqueIdentifier>{9501333d-ff4e-484b-ac52-d72d0ed97ceb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Application">
-      <UniqueIdentifier>{62adc4df-72cc-4997-94e8-5dad821cd2df}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Headers\Utilities">
-      <UniqueIdentifier>{d8a8b79d-20ba-4eee-8a6e-c3d93ff34132}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Input">
-      <UniqueIdentifier>{ce0acf82-39de-4202-a780-8b84d074e70a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Entities">
-      <UniqueIdentifier>{e1b34b08-8b40-420b-b853-0f71e74fad04}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Application">
-      <UniqueIdentifier>{28d7c6a1-83e5-433a-9c05-240c3dfee06f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Utilities">
-      <UniqueIdentifier>{bb141613-943d-49bd-bfe6-c8daea092d57}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Render">
-      <UniqueIdentifier>{9013c0ea-d6cd-4ca1-ac8a-b50c91365585}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\Resource Manager">
-      <UniqueIdentifier>{a05916cb-f386-4ebd-b02e-afc1521769a7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\States">
-      <UniqueIdentifier>{ce7b4059-4667-4b33-af05-2e5d42cad4bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\State Manager">
-      <UniqueIdentifier>{bdaed853-63b0-45f2-82e6-651c0c436f2e}</UniqueIdentifier>
-    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\Book\Aircraft.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Application.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Button.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Category.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Command.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\CommandQueue.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Component.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Container.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\DataTables.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Entity.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Foreach.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\GameOverState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\GameState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Label.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\MenuState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\PauseState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Pickup.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Player.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Projectile.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\ResourceHolder.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\ResourceIdentifiers.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\SceneNode.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\SettingsState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\SpriteNode.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\State.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\StateIdentifiers.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\StateStack.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\TextNode.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\TitleState.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\Utility.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\Book\World.hpp">
+      <Filter>Headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Include\Book\ResourceHolder.inl">
+      <Filter>Headers</Filter>
+    </None>
+    <None Include="Include\Book\Utility.inl">
+      <Filter>Headers</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\Aircraft.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Application.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Button.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Command.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\CommandQueue.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Component.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Container.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\DataTables.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Entity.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameOverState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\GameState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Label.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\MenuState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\PauseState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Pickup.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Player.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Projectile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SceneNode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SettingsState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\SpriteNode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\State.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\StateStack.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TextNode.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\TitleState.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\Utility.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\World.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

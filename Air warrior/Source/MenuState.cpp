@@ -1,14 +1,20 @@
 #include <Book/MenuState.hpp>
+#include <Book/Button.hpp>
+#include <Book/Utility.hpp>
+#include <Book/ResourceHolder.hpp>
+
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/View.hpp>
 
 MenuState::MenuState(StateStack& stack, Context context)
 	: State(stack, context)
 	, mGUIContainer()
 {
-	sf::Texture& texture = context.textures->get(Textures::TitleScreen);
+	sf::Texture& texture = context.textures->get(Textures::MainMenu);
 	mBackgroundSprite.setTexture(texture);
 
 	auto playButton = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
-	playButton->setPosition(230, 240);
+	playButton->setPosition(context.window->getSize().x / 2 - 100, context.window->getSize().y / 2 + 50);
 	playButton->setText("Play");
 	playButton->setCallback([this]()
 		{
@@ -16,28 +22,25 @@ MenuState::MenuState(StateStack& stack, Context context)
 			requestStackPush(States::Game);
 		});
 
+	auto settingsButton = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
+	settingsButton->setPosition(context.window->getSize().x / 2 - 100, context.window->getSize().y / 2 + 100);
+	settingsButton->setText("Settings");
+	settingsButton->setCallback([this]()
+		{
+			requestStackPush(States::Settings);
+		});
+
 	auto exitButton = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
-	exitButton->setPosition(230, 370);
+	exitButton->setPosition(context.window->getSize().x / 2 - 100, context.window->getSize().y / 2 + 170);
 	exitButton->setText("Exit");
 	exitButton->setCallback([this]()
 		{
 			requestStackPop();
 		});
-	auto hintLabel = std::make_shared<GUI::Label>("Press enter", *context.fonts);
-	hintLabel->setPosition(2, 460);
-	hintLabel->setCharacterSize(10);
-
-	auto settingsButton = std::make_shared<GUI::Button>(*context.fonts, *context.textures);
-	settingsButton->setText("Settings");
-	settingsButton->setPosition(230, 300);
-	settingsButton->setCallback([this]() {
-		requestStackPush(States::Settings);
-		});
 
 	mGUIContainer.pack(playButton);
 	mGUIContainer.pack(settingsButton);
 	mGUIContainer.pack(exitButton);
-	mGUIContainer.pack(hintLabel);
 }
 
 void MenuState::draw()
@@ -55,7 +58,7 @@ bool MenuState::update(sf::Time)
 	return true;
 }
 
-bool MenuState::handleEvent(const sf::Event& event)
+bool MenuState::handleEvent(const sf::Event & event)
 {
 	mGUIContainer.handleEvent(event);
 	return false;

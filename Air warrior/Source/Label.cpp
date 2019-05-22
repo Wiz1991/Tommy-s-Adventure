@@ -4,35 +4,33 @@
 #include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
+
 namespace GUI
 {
-	Label::Label(const std::string& text, const FontHolder& fonts)
-		: mText(text, fonts.get(Fonts::Main), 16)
-	{
-	}
 
-	bool Label::isSelectable() const
-	{
-		return false;
-	}
+Label::Label(const std::string& text, const FontHolder& fonts)
+: mText(text, fonts.get(Fonts::Main), 16)
+{
+}
 
-	void Label::handleEvent(const sf::Event&)
-	{
-	}
+bool Label::isSelectable() const
+{
+    return false;
+}
 
-	void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const
-	{
-		states.transform *= getTransform();
-		target.draw(mText, states);
-	}
+void Label::handleEvent(const sf::Event&)
+{
+}
 
-	void Label::setText(const std::string& text)
-	{
-		mText.setString(text);
-	}
+void Label::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	states.transform *= getTransform();
+	target.draw(mText, states);
+}
 
-	void Label::setCharacterSize(size_t size)
-	{
-		mText.setCharacterSize(size);
-	}
+void Label::setText(const std::string& text)
+{
+	mText.setString(text);
+}
+
 }

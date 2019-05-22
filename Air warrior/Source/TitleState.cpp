@@ -4,18 +4,19 @@
 
 #include <SFML/Graphics/RenderWindow.hpp>
 
+
 TitleState::TitleState(StateStack& stack, Context context)
-	: State(stack, context)
-	, mText()
-	, mShowText(true)
-	, mTextEffectTime(sf::Time::Zero)
+: State(stack, context)
+, mText()
+, mShowText(true)
+, mTextEffectTime(sf::Time::Zero)
 {
 	mBackgroundSprite.setTexture(context.textures->get(Textures::TitleScreen));
 
 	mText.setFont(context.fonts->get(Fonts::Main));
 	mText.setString("Press any key to start");
 	centerOrigin(mText);
-	mText.setPosition(context.window->getView().getSize() / 2.f);
+	mText.setPosition(sf::Vector2f(context.window->getSize() / 2u));
 }
 
 void TitleState::draw()
@@ -40,10 +41,10 @@ bool TitleState::update(sf::Time dt)
 	return true;
 }
 
-bool TitleState::handleEvent(const sf::Event & event)
+bool TitleState::handleEvent(const sf::Event& event)
 {
 	// If any key is pressed, trigger the next screen
-	if (event.type == sf::Event::KeyPressed)
+	if (event.type == sf::Event::KeyReleased)
 	{
 		requestStackPop();
 		requestStackPush(States::Menu);
